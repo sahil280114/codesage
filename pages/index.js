@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import CircularProgress from '@mui/material/CircularProgress';
-
+import Script from 'next/script';
 export default function Home() {
 
   const [userInput, setUserInput] = useState("");
@@ -50,6 +50,7 @@ export default function Home() {
     setLoading(true);
     setMessages((prevMessages) => [...prevMessages, { "message": userInput, "type": "userMessage" }]);
     // Send user question and history to API
+    console.log(history)
     const response = await fetch("/api/chat", {
       method: "POST",
       headers: {
@@ -70,7 +71,7 @@ export default function Home() {
       handleError();
       return;
     }
-
+    console.log(data)
     setMessages((prevMessages) => [...prevMessages, { "message": data.result["output"], "type": "apiMessage" }]);
     setLoading(false);
     
@@ -96,12 +97,15 @@ export default function Home() {
 
   return (
     <>
+      
       <Head>
         <title>CodeSage Chat</title>
         <meta name="description" content="CodeSage chatbot" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+
       </Head>
+      <Script defer data-domain="codesage.xyz" src="https://plausible.io/js/script.js"/>
       <div className={styles.topnav}>
       <div className = {styles.navlogo}>
     <a href="/">CodeSage</a>
@@ -115,7 +119,7 @@ export default function Home() {
             // The latest message sent by the user will be animated while waiting for a response
               <div key = {index} className = {message.type === "userMessage" && loading && index === messages.length - 1  ? styles.usermessagewaiting : message.type === "apiMessage" ? styles.apimessage : styles.usermessage}>
                 {/* Display the correct icon depending on the message type */}
-                {message.type === "apiMessage" ? <Image src = "/parroticon.png" alt = "AI" width = "30" height = "30" className = {styles.boticon} priority = {true} /> : <Image src = "/usericon.png" alt = "Me" width = "30" height = "30" className = {styles.usericon} priority = {true} />}
+                {message.type === "apiMessage" ? <Image src = "/sageicon.png" alt = "AI" width = "30" height = "30" className = {styles.boticon} priority = {true} /> : <Image src = "/usericon.png" alt = "Me" width = "30" height = "30" className = {styles.usericon} priority = {true} />}
               <div className = {styles.markdownanswer}>
                 {/* Messages are being rendered in Markdown format */}
                 <ReactMarkdown linkTarget = {"_blank"}>{message.message}</ReactMarkdown>
@@ -158,7 +162,6 @@ export default function Home() {
             </form>
             </div>
             <div className = {styles.footer}>
-            <p>Built by <a href="https://twitter.com/csahil28" target="_blank">Sahil</a>.</p>
             </div>
         </div>
       </main>
