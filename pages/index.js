@@ -71,8 +71,11 @@ export default function Home() {
       handleError();
       return;
     }
-    console.log(data)
-    setMessages((prevMessages) => [...prevMessages, { "message": data.result["output"], "type": "apiMessage" }]);
+    if (data.result["status"]==500){
+      handleError();
+    }
+    else {setMessages((prevMessages) => [...prevMessages, { "message": data.result["output"], "type": "apiMessage" }]);}
+    
     setLoading(false);
     
   };
