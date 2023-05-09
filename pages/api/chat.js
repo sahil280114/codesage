@@ -7,7 +7,8 @@ export default async function (req, res) {
     },
     body: JSON.stringify({
       question: req.body.question,
-      history: req.body.history
+      history: req.body.history,
+      temperature: 0.3,
     }),
   });
 
