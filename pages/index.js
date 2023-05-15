@@ -125,7 +125,7 @@ export default function Home() {
                 {message.type === "apiMessage" ? <Image src = "/sageicon.png" alt = "AI" width = "30" height = "30" className = {styles.boticon} priority = {true} /> : <Image src = "/usericon.png" alt = "Me" width = "30" height = "30" className = {styles.usericon} priority = {true} />}
               <div className = {styles.markdownanswer}>
                 {/* Messages are being rendered in Markdown format */}
-                <ReactMarkdown linkTarget = {"_blank"}>{message.type === "apiMessage" ? message.message : message.message}</ReactMarkdown>
+                <ReactMarkdown linkTarget = {"_blank"}>{message.type === "apiMessage" ? "```\n"+message.message+"\n```" : message.message}</ReactMarkdown>
                 </div>
               </div>
           )
