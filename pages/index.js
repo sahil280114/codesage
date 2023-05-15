@@ -109,11 +109,7 @@ export default function Home() {
 
       </Head>
       <Script defer data-domain="codesage.xyz" src="https://plausible.io/js/script.js"/>
-      <div className={styles.topnav}>
-      <div className = {styles.navlogo}>
-    <a href="/">CodeSage</a>
-    </div>
-</div>
+      
       <main className={styles.main}>
       <div className = {styles.cloud}>
         <div ref={messageListRef} className = {styles.messagelist}>
