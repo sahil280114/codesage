@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
+  padding: 3rem;
 }
 
 .header {
@@ -185,7 +185,7 @@
 }
 
 .markdownanswer code {
-  color: #ffffff;
+  color: #ECECF1;
   font-weight: 500;
   white-space: pre-wrap !important;
 }
