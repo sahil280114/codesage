@@ -1,6 +1,6 @@
 export default async function (req, res) {
 
-  const response = await fetch("http://64.247.206.249:27588", {
+  const response = await fetch("http://209.20.157.25:8000/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
