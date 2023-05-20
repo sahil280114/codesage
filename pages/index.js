@@ -94,7 +94,7 @@ export default function Home() {
   // Keep history in sync with messages
   useEffect(() => {
     if (messages.length >= 3) {
-      setHistory([[messages[messages.length - 2].message, messages[messages.length - 1].message]]);
+      setHistory([[messages[messages.length - 4].message, messages[messages.length - 1].message]]);
     }
     }, [messages])
 
