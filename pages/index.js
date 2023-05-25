@@ -164,7 +164,7 @@ export default function Home() {
             </form>
             </div>
             <div className = {styles.footer}>
-              <p>The model is not trained for dialogue so may produce incoherent outputs. Refresh the page to restart the chat.</p>
+              <p>To teach the model new tools, send in the documentation url as "#learn: https://platform.openai.com/docs/guides/completion". To see a list of tools people have taught the model use "#list-tools"</p>
             </div>
         </div>
       </main>
